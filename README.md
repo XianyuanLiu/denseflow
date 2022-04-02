@@ -11,6 +11,12 @@ Extracting dense flow field given a video.
 - record the progress when extract a list of videos, and resume by simply running the same command again (idempotent)
 
 ## Install
+### Docker:
+```bash
+docker build -f ./docker/Dockerfile --rm -t denseflow .
+
+docker run --gpus all --shm-size=8g -it -v {DATA_DIR}:/data denseflow
+```
 
 ### Dependencies:
 
