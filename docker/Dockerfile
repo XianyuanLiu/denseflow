@@ -7,6 +7,7 @@ ARG OPENCV="4.5.2"
 # "Pascal" "Volta" "Turing" "Ampere"
 ARG CUDA_GENERATION="Pascal"
 
+RUN sed -i s:/archive.ubuntu.com:/mirrors.tuna.tsinghua.edu.cn/ubuntu:g /etc/apt/sources.list
 RUN apt update \
     && apt install -y git cmake wget software-properties-common nasm yasm libx264-dev libx265-dev libvpx-dev libboost-all-dev ffmpeg libavcodec-dev libavformat-dev libavutil-dev libblas-dev liblapack-dev libswscale-dev libtiff-dev libdc1394-22-dev libpng-dev libavresample-dev ccache libgflags-dev libhdf5-dev liblapack-dev libeigen3-dev libgoogle-glog-dev libfreetype6-dev \
     && wget -O - https://apt.kitware.com/keys/kitware-archive-latest.asc 2>/dev/null | gpg --dearmor - |  tee /etc/apt/trusted.gpg.d/kitware.gpg >/dev/null \
